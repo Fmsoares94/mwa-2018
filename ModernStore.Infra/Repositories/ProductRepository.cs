@@ -27,15 +27,16 @@ namespace ModernStore.Infra.Repositories
                 .FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<GetCustomerCommandResult> Get()
+        public IEnumerable<GetProductCommandResult> Get()
         {
-            var query = "SELECT [Id], [Title], [Price], [Image] FROM [Products]";
-            using (SqlConnection conn = new SqlConnection(@"Data Source=.\sqlexpress; database=ModernStore; Integrated Security=True;User id=sa;password=123456"))
+            var query = "SELECT [Id], [Title], [Price], [Image] FROM [Product]";
+            using (var conn = new SqlConnection(@"Server=.\sqlexpress; database=ModernStore; Integrated Security=True;User id=sa;password=123456"))
             {
                 conn.Open();
-                return conn
-                    .Query<GetCustomerCommandResult>(query);
+               return conn.Query<GetProductCommandResult>(query);
             }
         }
+
+      
     }
 }

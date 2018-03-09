@@ -12,21 +12,15 @@ namespace ModernStore.Domain.Commands.Handler
         ICommandHandler<RegisterCustomerCommand>
     {
         private readonly ICustomerRepository _customerRepository;
-     
 
         public CustomerCommandHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
-            
-            
         }
-     
 
         public ICommandResult Handle(RegisterCustomerCommand command)
         {
-            
-
-            //Verificar se o CPF ja  existe
+            //Verificar se o CPF é valido
             if (_customerRepository.DocumentExists(command.Document))
             {
                 AddNotification("Document", "Este CPF ja existe");
@@ -47,12 +41,14 @@ namespace ModernStore.Domain.Commands.Handler
             AddNotifications(user.Notifications);
             AddNotifications(customer.Notifications);
 
-            //Inserir no banco
-            if (IsValid())
+
+            if (!IsValid())
+                return null;
+                //Inserir no banco
                 _customerRepository.Save(customer);
 
             // Enviar E-mail de boas vindas
-          
+
 
             // Retornar algo
 

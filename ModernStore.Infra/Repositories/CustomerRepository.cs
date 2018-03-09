@@ -22,7 +22,7 @@ namespace ModernStore.Infra.Repositories
         public Customer Get(Guid id)
         {
             return _context
-                .Custumers
+                .Customers
                 .Include(x => x.User)
                 .FirstOrDefault(x => x.Id == id);
         }
@@ -35,7 +35,7 @@ namespace ModernStore.Infra.Repositories
         public Customer Get(string document)
         {
             return _context
-                .Custumers
+                .Customers
                 .Include(x => x.User)
                 .FirstOrDefault(x => x.Document.Number == document);
         }
@@ -47,12 +47,13 @@ namespace ModernStore.Infra.Repositories
 
         public bool DocumentExists(string document)
         {
-            return _context.Custumers.Any(x => x.Document.Number == document);
+            return _context.Customers.Any(x => x.Document.Number == document);
         }
 
         public void Save(Customer customer)
         {
-            _context.Custumers.Add(customer);
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
         }
 
         GetCustomerCommandResult ICustomerRepository.Get(string username)
@@ -78,7 +79,7 @@ namespace ModernStore.Infra.Repositories
                 conn.Open();
                 return conn
                     .Query<GetCustomerCommandResult>(query,
-                    new{username = username})
+                    new { username = username })
                     .FirstOrDefault();
             }
         }

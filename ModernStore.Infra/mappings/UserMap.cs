@@ -7,7 +7,7 @@ namespace ModernStore.Infra.mappings
     {
         public UserMap()
         {
-            ToTable("User");
+            ToTable("Users");
             HasKey(x => x.Id);
             Property(x => x.Username).IsRequired().HasMaxLength(20);
             Property(x => x.PassWord).IsRequired().HasMaxLength(32).IsFixedLength();

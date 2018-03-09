@@ -140,13 +140,9 @@
     <Compile Include="mappings\OrderMap.cs" />
     <Compile Include="mappings\ProductMap.cs" />
     <Compile Include="mappings\UserMap.cs" />
-    <Compile Include="Migrations\201803072134590_v1.cs" />
-    <Compile Include="Migrations\201803072134590_v1.Designer.cs">
-      <DependentUpon>201803072134590_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803072217148_v2.cs" />
-    <Compile Include="Migrations\201803072217148_v2.Designer.cs">
-      <DependentUpon>201803072217148_v2.cs</DependentUpon>
+    <Compile Include="Migrations\201803092001338__v1.cs" />
+    <Compile Include="Migrations\201803092001338__v1.Designer.cs">
+      <DependentUpon>201803092001338__v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,14 +159,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803072134590_v1.resx">
-      <DependentUpon>201803072134590_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803072217148_v2.resx">
-      <DependentUpon>201803072217148_v2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ModernStore.Domain\ModernStore.Domain.csproj">
       <Project>{9430f830-8316-486a-bedd-02215f540087}</Project>
       <Name>ModernStore.Domain</Name>
@@ -179,6 +167,11 @@
       <Project>{3cb1174e-fe63-4aad-98aa-956f28c1abc3}</Project>
       <Name>ModernStore.Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803092001338__v1.resx">
+      <DependentUpon>201803092001338__v1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

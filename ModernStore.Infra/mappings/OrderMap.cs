@@ -7,7 +7,7 @@ namespace ModernStore.Infra.mappings
     {
         public OrderMap()
         {
-            ToTable("Order");
+            ToTable("Orders");
             HasKey(x => x.Id);
             Property(x => x.CreateData);
             Property(x => x.DeliveryFree).HasColumnType("money");

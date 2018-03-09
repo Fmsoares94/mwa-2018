@@ -12,10 +12,11 @@ namespace ModernStore.Infra.Contexts
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public DbSet<Customer> Custumers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<User> Users { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CustomerMap());
@@ -25,5 +26,5 @@ namespace ModernStore.Infra.Contexts
             modelBuilder.Configurations.Add(new UserMap());
         }
     }
-     
+
 }

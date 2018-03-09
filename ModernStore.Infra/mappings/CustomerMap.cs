@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ModernStore.Domain.Entities;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModernStore.Domain.Entities;
 
 namespace ModernStore.Infra.mappings
 {
@@ -12,9 +7,9 @@ namespace ModernStore.Infra.mappings
     {
         public CustomerMap()
         {
-            ToTable("Customer");
+            ToTable("Customers");
             HasKey(x => x.Id);
-            Property(x => x.BirthDate);
+            Property(x => x.BirthDate).IsOptional();
             Property(x => x.Document.Number).IsRequired().HasMaxLength(11).IsFixedLength();
             Property(x => x.Email.Address).IsRequired().HasMaxLength(160);
             Property(x => x.Name.FirstName).IsRequired().HasMaxLength(60);

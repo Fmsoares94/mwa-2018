@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ModernStore.Domain.Entities;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModernStore.Domain.Entities;
 
 namespace ModernStore.Infra.mappings
 {
@@ -12,7 +7,7 @@ namespace ModernStore.Infra.mappings
     {
         public ProductMap()
         {
-            ToTable("Product");
+            ToTable("Products");
             HasKey(x => x.Id);
             Property(x => x.Image).IsRequired().HasMaxLength(1024);
             Property(x => x.Price);
